@@ -16,7 +16,7 @@ class OwnersController < ApplicationController
       @owner.pets << Pet.create(name: params["pet"]["name"])
     end
     @owner.save
-    redirect to "owners/#{owner.id}"
+    redirect to "owners/#{@owner.id}"
   end
 
   get '/owners/:id/edit' do
@@ -25,7 +25,7 @@ class OwnersController < ApplicationController
     erb :'/owners/edit'
   end
 
-  get '/owners/:id' do
+  get '/owners/:id' do #end point
     @owner = Owner.find(params[:id])
     erb :'/owners/show'
   end
